@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Charts</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="My Image" style="width: 40px; height: auto; margin: 5px" >
+            <a class="navbar-brand" href="/">Career Detection System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/careers">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tracks">Tracks/Strands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/opportunity">Get Your Career Guidance Now !</a>
+                    </li>
+               
+                    <li class="nav-item">
+                        <a class="nav-link" href="/graphs">View Skills Pie Chart</a>
+                    </li> 
+                  
+                        <li class="nav-item">
+                            <a class="nav-link" href="/history_log">History log</a>
+                        </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+    <h2 class="text-center"> Analytic Dashboard 📊 </h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Gender Distribution</h4>
+            <canvas id="genderChart"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h4>Grade Distribution</h4>
+            <canvas id="gradeChart"></canvas>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h4>School Distribution</h4>
+            <canvas id="schoolChart"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h4>Top Track Scores</h4>
+            <canvas id="topScoresChart"></canvas>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h4>Highest Cluster Score (Horizontal Bar)</h4>
+            <canvas id="clusterBarChart"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h4>Highest Cluster Score (Radar Chart)</h4>
+            <canvas id="clusterRadarChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        fetch('/chart-data')
+            .then(response => response.json())
+            .then(data => {
+                console.log("Chart Data:", data);
+
+                let clusterLabels = Object.keys(data.cluster_scores);
+                let clusterValues = Object.values(data.cluster_scores);
+
+                // Remove "Unknown" if it exists
+                let indexUnknown = clusterLabels.indexOf("Unknown");
+                if (indexUnknown !== -1) {
+                    clusterLabels.splice(indexUnknown, 1);
+                    clusterValues.splice(indexUnknown, 1);
+                }
+
+                // Gender Chart
+                new Chart(document.getElementById('genderChart').getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(data.gender),
+                        datasets: [{
+                            label: 'Gender Count',
+                            data: Object.values(data.gender),
+                            backgroundColor: ['blue', 'pink']
+                        }]
+                    }
+                });
+
+                // Grade Chart
+                new Chart(document.getElementById('gradeChart').getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(data.grade),
+                        datasets: [{
+                            label: 'Grade Count',
+                            data: Object.values(data.grade),
+                            backgroundColor: 'lightgreen'
+                        }]
+                    }
+                });
+
+                // School Chart
+                new Chart(document.getElementById('schoolChart').getContext('2d'), {
+                    type: 'pie',
+                    data: {
+                        labels: Object.keys(data.school),
+                        datasets: [{
+                            data: Object.values(data.school),
+                            backgroundColor: ['lightblue', 'lightgreen', 'lightcoral', 'gold']
+                        }]
+                    }
+                });
+
+                // Track Scores Chart
+                new Chart(document.getElementById('topScoresChart').getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(data.scores),
+                        datasets: [{
+                            label: 'Total Score',
+                            data: Object.values(data.scores),
+                            backgroundColor: 'lightblue',
+                            borderColor: 'blue',
+                            borderWidth: 1
+                        }]
+                    }
+                });
+
+                // Horizontal Bar Chart for Cluster Scores
+                new Chart(document.getElementById('clusterBarChart').getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: clusterLabels,
+                        datasets: [{
+                            label: 'Cluster Scores',
+                            data: clusterValues,
+                            backgroundColor: 'lightblue'
+                        }]
+                    },
+                    options: { indexAxis: 'y', responsive: true }
+                });
+
+                // Radar Chart for Cluster Scores
+                new Chart(document.getElementById('clusterRadarChart').getContext('2d'), {
+                    type: 'radar',
+                    data: {
+                        labels: clusterLabels,
+                        datasets: [{
+                            label: 'Cluster Scores',
+                            data: clusterValues,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'blue',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: { responsive: true }
+                });
+            })
+            .catch(error => console.error('Error loading chart data:', error));
+    </script>
+    <script>
+        function fetchDataAndUpdateCharts() {
+            fetch('/chart-data')
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Chart Data:", data);
+    
+                    let clusterLabels = Object.keys(data.cluster_scores);
+                    let clusterValues = Object.values(data.cluster_scores);
+    
+                    // Remove "Unknown" if it exists
+                    let indexUnknown = clusterLabels.indexOf("Unknown");
+                    if (indexUnknown !== -1) {
+                        clusterLabels.splice(indexUnknown, 1);
+                        clusterValues.splice(indexUnknown, 1);
+                    }
+    
+                    function updateChart(chart, labels, values) {
+                        chart.data.labels = labels;
+                        chart.data.datasets[0].data = values;
+                        chart.update();
+                    }
+    
+                    updateChart(genderChart, Object.keys(data.gender), Object.values(data.gender));
+                    updateChart(gradeChart, Object.keys(data.grade), Object.values(data.grade));
+                    updateChart(schoolChart, Object.keys(data.school), Object.values(data.school));
+                    updateChart(topScoresChart, Object.keys(data.scores), Object.values(data.scores));
+                    updateChart(clusterBarChart, clusterLabels, clusterValues);
+                    updateChart(clusterRadarChart, clusterLabels, clusterValues);
+                })
+                .catch(error => console.error('Error loading chart data:', error));
+        }
+    
+        let genderChart = new Chart(document.getElementById('genderChart').getContext('2d'), {
+            type: 'bar',
+            data: { labels: [], datasets: [{ label: 'Gender Count', data: [], backgroundColor: ['blue', 'pink'] }] }
+        });
+    
+        let gradeChart = new Chart(document.getElementById('gradeChart').getContext('2d'), {
+            type: 'bar',
+            data: { labels: [], datasets: [{ label: 'Grade Count', data: [], backgroundColor: 'lightgreen' }] }
+        });
+    
+        let schoolChart = new Chart(document.getElementById('schoolChart').getContext('2d'), {
+            type: 'pie',
+            data: { labels: [], datasets: [{ data: [], backgroundColor: ['lightblue', 'lightgreen', 'lightcoral', 'gold'] }] }
+        });
+    
+        let topScoresChart = new Chart(document.getElementById('topScoresChart').getContext('2d'), {
+            type: 'bar',
+            data: { labels: [], datasets: [{ label: 'Total Score', data: [], backgroundColor: 'lightblue' }] }
+        });
+    
+        let clusterBarChart = new Chart(document.getElementById('clusterBarChart').getContext('2d'), {
+            type: 'bar',
+            data: { labels: [], datasets: [{ label: 'Cluster Scores', data: [], backgroundColor: 'lightblue' }] },
+            options: { indexAxis: 'y', responsive: true }
+        });
+    
+        let clusterRadarChart = new Chart(document.getElementById('clusterRadarChart').getContext('2d'), {
+            type: 'radar',
+            data: { labels: [], datasets: [{ label: 'Cluster Scores', data: [], backgroundColor: 'rgba(54, 162, 235, 0.2)' }] }
+        });
+    
+        fetchDataAndUpdateCharts();  // Load data initially
+        setInterval(fetchDataAndUpdateCharts, 5000);  // Auto-refresh every 5 seconds
+    </script>
+    
+</body>
+</html>

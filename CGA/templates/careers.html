@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container my-4">
+    <h1 class="text-center mb-4">Job Openings</h1>
+
+    {% if jobs %}
+        <div class="row">
+            {% for job in jobs %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ job.title }}</h5>
+                            <p class="card-text"><strong>Organization:</strong> {{ job.organization }}</p>
+                            <p class="card-text"><strong>Location:</strong> {{ job.location }}</p>
+                            <p class="card-text"><strong>Date Valid Through:</strong> {{ job.date_validthrough }}</p>
+                            <p class="card-text"><strong>Organization:</strong> {{ job.organization }}</p>
+                            <p class="card-text"><strong>LinkedIn Org Description:</strong> {{ job.linkedin_org_description }}</p>
+                            <p class="card-text"><strong>Seniority:</strong> {{ job.seniority }}</p>
+                            <p class="card-text"><strong>Industry:</strong> {{ job.linkedin_org_industry }}</p>
+                            <a href="{{ job.organization_url }}" target="_blank" class="btn btn-primary">Apply Here</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center">No job openings found or an error occurred.</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}

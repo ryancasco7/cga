@@ -1,0 +1,636 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            <h2>Result</h2>
+        </div>
+        <div class="card-body">
+            <p>Hi <b>{{ name }}!</b></p>
+            <p>You like to live in the <b><span class="highlight">{{ setting1 }}</span></b> and  <b><span class="highlight">{{ setting2 }}</span></b></p>
+            <p>The type of work you like to do is <b><span class="highlight">{{ work_type }}</span></b></p>
+            <p>Your ideal work environment is <b><span class="highlight">{{ work_env }}</span></b></p>
+            
+            <p>You want to achieve the following within the next one to three years: <b><span class="highlight">{{ ', '.join(immediate_goals) }}</span></b></p>
+            
+            <p>You are Highly Skilled in: <b><span class="highlight">{{ ', '.join(highly_skilled) }}</span></b></p>
+            <p>You are Skilled in: <b><span class="highlight">{{ ', '.join(skilled) }}</span></b></p>
+            <p>You are Moderately Skilled in: <b><span class="highlight">{{ ', '.join(moderately_skilled) }}</span></b></p>
+            <p>You are Unskilled in: <b><span class="highlight">{{ ', '.join(unskilled) }}</span></b></p>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            <a href="#" class="btn btn-success btn-custom"><h3><b>Detected Track:</b> {{ detected_track }} Track </p></h3> </a>
+        </div>
+        <div class="card-body">
+            {% if detected_track == "TVL" %}
+                <p>TVL (Technical-Vocational-Livelihood) is designed for students who want to develop technical skills in various industries like Information Technology, Home Economics, Industrial Arts, and Agri-Fishery. This track prepares students for work in these specialized fields or to start their own business.</p>
+                
+                <b>Available Strands</b>
+                <ul>
+                    <li>Information and Communications Technology (ICT)
+                        <ul>
+                            <li>Computer Programmer</li>
+                            <li>Web Developer/Designer</li>
+                            <li>IT Support Specialist</li>
+                            <li>Computer Technician</li>
+                            <li>Data Encoder</li>
+                            <li>Network Administrator</li>
+                            <li>Digital Animator</li>
+                            <li>Graphic Designer</li>
+                            <li>Multimedia Specialist</li>
+                            <li>Game Developer</li>
+                            <li>Call Center Agent (BPO Services)</li>
+                            <li>Video Editor</li>
+                            <li>Virtual Assistant</li>
+                            <li>Technical Support Representative</li>
+                        </ul>
+                    </li>
+                    <li>Home Economics (H.E)
+                        <ul>
+                            <li>Cook/Chef</li>
+                            <li>Baker/Pastry Chef</li>
+                            <li>Food and Beverage Service Attendant</li>
+                            <li>Housekeeping Attendant</li>
+                            <li>Barista</li>
+                            <li>Bartender</li>
+                            <li>Front Desk Associate</li>
+                            <li>Tour Guide</li>
+                            <li>Travel Consultant</li>
+                            <li>Dressmaker/Tailor</li>
+                            <li>Fashion Designer</li>
+                            <li>Spa Therapist</li>
+                            <li>Beautician/Makeup Artist</li>
+                            <li>Event Planner</li>
+                            <li>Entrepreneur (small-scale business)</li>
+                        </ul>
+                    </li>
+                    <li>Agri Fishery Arts (AFA)
+                        <ul>
+                            <li>Farmer</li>
+                            <li>Fisherman</li>
+                            <li>Agricultural Technician</li>
+                            <li>Livestock/Poultry Raiser</li>
+                            <li>Horticulturist</li>
+                            <li>Aquaculture Farmer</li>
+                            <li>Agricultural Equipment Operator</li>
+                            <li>Food Processor (Agricultural products)</li>
+                            <li>Agro-Entrepreneur</li>
+                            <li>Farm Manager</li>
+                            <li>Landscape Gardener</li>
+                            <li>Beekeeper</li>
+                        </ul>
+                    </li>
+                    <li>Industrial Arts (IA)
+                        <ul>
+                            <li>Carpenter</li>
+                            <li>Electrician</li>
+                            <li>Welder</li>
+                            <li>Plumber</li>
+                            <li>Machinist</li>
+                            <li>Automotive Mechanic/Technician</li>
+                            <li>Painter (Construction/Industrial)</li>
+                            <li>Heavy Equipment Operator</li>
+                            <li>Metal Fabricator</li>
+                            <li>Draftsman/AutoCAD Technician</li>
+                            <li>Upholsterer</li>
+                            <li>Electronics Technician</li>
+                            <li>Furniture Maker</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h2>Information and Communications Technology (ICT)</h2>
+                <ul>
+                    <li>Skills</li>
+                        <ul>
+                            <li> - Programming and coding (e.g., Python, HTML, JavaScript)</li>
+                            <li> - Troubleshooting hardware and software issues</li>
+                            <li> - Graphic design and video editing</li>
+                            <li> - Networking and cybersecurity basics</li>
+                            <li> - Typing and data encoding</li>
+                            <li> - Proficiency in IT tools (e.g., MS Office, Adobe Creative Suite)</li>
+                        </ul>
+                    <li>Certifications - NC II in Computer Systems Servicing, Web Development, or Animation. </li>
+                    <li>Talents - Creativity in tech, attention to detail, problem-solving, and Adaptability to new technologies </li>
+                    <li>Talents - Creativity in tech, attention to detail, problem-solving, and Adaptability to new technologies  </li>
+                    <li> 
+                        <ul>
+                            <li>Target Skills:</li>
+                                <ul>
+                                    <li>Computer hardware assembly and troubleshooting</li>
+                                    <li>Software installation and maintenance</li>
+                                    <li>Programming and coding (e.g., Python, Java, HTML/CSS)</li>
+                                    <li>Web development and design</li>
+                                    <li>Graphic design and video editing</li>
+                                    <li>Networking and cybersecurity basics</li>
+                                    <li>Data encoding and database management</li>
+                                    <li>Digital animation and multimedia production</li>
+                                </ul>
+                            
+                            <li>How to Improve:</li>
+                                <ul>    
+                                    <li>Enroll in courses on programming, web development, or design.</li>
+                                    <li>Practice coding through platforms like Codecademy or freeCodeCamp.</li>
+                                    <li>Work on real-world projects like creating websites or editing videos.</li>
+                                    <li>Join tech-related competitions or clubs for hands-on experience.</li>
+                                    <li>Stay updated with emerging tech trends and tools.</li>
+                                    <li>Seek internships or apprenticeships in IT-related companies.</li>
+                                </ul>
+                        </ul>
+                    </li>
+                </ul>
+
+
+
+                <h2>Home Economics (HE)</h2>
+                <ul>
+                    <li>Skills - Cooking, baking, sewing, caregiving, hospitality management, and Beauty care skills (e.g., makeup, hair styling, massage)</li>
+                    <li>Certifications - NC II in Cookery, Bread and Pastry Production, Caregiving, Tailoring, Dressmaking, or Beauty Care</li>
+                    <li>Talents - Creativity in homemaking, attention to detail, Artistic flair for beauty care and tailoring</li>
+                    <li>Experiences - Internships in hotels/restaurants, Volunteering for community events or beauty pageants, or Participating in local competitions (e.g., cooking contests, fashion shows) </li>
+                    <li>
+                       <ul>
+                            <li>Target Skills:</li>
+                                <ul>
+                                    <li>Cooking and baking techniques</li>
+                                    <li>Food and beverage preparation and service</li>
+                                    <li>Housekeeping and sanitation</li>
+                                    <li>Event planning and management</li>
+                                    <li>Dressmaking and tailoring</li>
+                                    <li>Spa and beauty care skills (massage, makeup, hair styling)</li>
+                                    <li>Customer service and entrepreneurship</li>
+                                </ul>
+                            <li>How to Improve:</li>
+                                <ul>
+                                    <li>Take workshops or short courses in cooking, baking, or beauty care.</li>
+                                    <li>Participate in local events or school programs to practice hosting and managing.</li>
+                                    <li>Start small businesses (e.g., catering, tailoring, or beauty services) to gain practical experience.</li>
+                                    <li>Watch tutorials and follow step-by-step guides on YouTube for specific skills.</li>
+                                    <li>Intern or volunteer in hotels, restaurants, or spas.</li>
+                                    <li>Build a portfolio of your creations (e.g., baked goods, tailored clothes).</li>
+                        
+                                </ul>
+                       </ul>
+                    </li>
+                </ul>
+
+                <h2>Industrial Arts</h2>
+                <ul>
+                    <li>Skills  -  Carpentry, welding, drafting and blueprint reading, electrical installation.</li>
+                    <li>Certifications - NC II in Carpentry, Welding, or Electrical Installation and Maintenance.</li>
+                    <li>Talents - Craftsmanship, Mechanical aptitude for understanding machines, problem-solving.</li>
+                    <li>Experiences - Hands-on training in workshops, Volunteer work for community construction or repair projects , or Building and repairing small-scale projects at home</li>
+                    <li>
+                        <ul>
+                             <li>Target Skills:</li>
+                                 <ul>
+                                     <li>Carpentry, welding, and metalworking</li>
+                                     <li>Electrical installation and maintenance</li>
+                                     <li>Automotive repair and troubleshooting</li>
+                                     <li>Drafting and technical drawing (including CAD software)</li>
+                                     <li>Plumbing and pipefitting</li>
+                                     <li>Painting and finishing</li>
+                                     <li>Machine operation and tool handling</li>
+                                 </ul>
+                             <li>How to Improve:</li>
+                                 <ul>
+                                     <li>Join vocational training programs and certification courses in trade skills.</li>
+                                     <li>Practice building small projects (e.g., furniture, minor electrical repairs).</li>
+                                     <li>Work under skilled professionals as apprentices.</li>
+                                     <li>Familiarize yourself with safety protocols and tools handling.</li>
+                                     <li>Use free software like AutoCAD to develop drafting skills.</li>
+                                     <li>Participate in technical skill competitions like TESDA skills contests.</li>
+                         
+                                 </ul>
+                        </ul>
+                     </li>
+                </ul>
+
+                
+                <h2>Agri-Fishery Arts</h2>
+                <ul>
+                    <li>Skills - Farming, aquaculture, crop production, fisheries management.</li>
+                    <li>Certifications - NC II in Agricultural Crop Production or Aquaculture.</li>
+                    <li>Talents - Passion for agriculture, attention to detail, environmental awareness.</li>
+                    <li>Experience - Farming projects, aquaculture training, Internships in farms, plantations, or fisheries</li>
+                    <li>
+                        <ul>
+                             <li>Target Skills:</li>
+                                 <ul>
+                                     <li>Crop production and farming techniques</li>
+                                     <li>Livestock and poultry raising</li>
+                                     <li>Fish farming (aquaculture) and fishing techniques</li>
+                                     <li>Food processing and preservation</li>
+                                     <li>Agricultural machinery operation and maintenance</li>
+                                     <li>Organic farming and sustainable agriculture</li>
+                                     <li>Marketing and entrepreneurship in agribusiness</li>
+
+                             <li>How to Improve:</li>
+                                 <ul>
+                                     <li>Engage in on-the-job training at farms or agricultural facilities.</li>
+                                     <li>Experiment with small-scale farming or gardening at home.</li>
+                                     <li>Enroll in government programs or agricultural training sessions by TESDA or DA.</li>
+                                     <li>Join cooperatives or farming organizations to learn modern techniques.</li>
+                                     <li>Attend seminars on organic farming or agribusiness marketing.</li>
+                                     <li>Learn to use and maintain farming tools and machinery effectively.</li>
+                                 </ul>
+                        </ul>
+                     </li>
+                </ul>
+
+            {% elif detected_track == "ACADEMIC" %}
+
+                <b>Available Strands</b>
+                <ul>
+                    <li>Accountancy, Business and Management (ABM)
+                        <ul>
+                            <li>Accountant</li>
+                            <li>Auditor</li>
+                            <li>Bank Manager</li>
+                            <li>Business Analyst</li>
+                            <li>Business Consultant</li>
+                            <li>Business Development Officer</li>
+                            <li>Chief Financial Officer (CFO)</li>
+                            <li>Entrepreneur</li>
+                            <li>Financial Advisor</li>
+                            <li>Financial Analyst</li>
+                            <li>Human Resources Officer</li>
+                            <li>Management Consultant</li>
+                            <li>Marketing Manager</li>
+                            <li>Operations Manager</li>
+                            <li>Project Manager</li>
+                            <li>Public Relations Officer</li>
+                            <li>Real Estate Agent</li>
+                            <li>Sales Manager</li>
+                            <li>Stock Broker</li>
+                            <li>Supply Chain Manager</li>
+                            <li>Tax Specialist</li>
+                            <li>Tourism Manager</li>
+                            <li>Hotel Manager</li>
+                            <li>Retail Manager</li>
+                            <li>Investment Banker</li>
+                            <li>Customer Relations Officer</li>
+                            <li>Economist</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul> 
+                    <li>Humanities and Social Sciences (HUMSS)
+                        <ul>
+                            <li>Anthropologist</li>
+                            <li>Community Organizer</li>
+                            <li>Counselor</li>
+                            <li>Cultural Worker</li>
+                            <li>Diplomat</li>
+                            <li>Editor</li>
+                            <li>Foreign Service Officer</li>
+                            <li>Guidance Counselor</li>
+                            <li>Historian</li>
+                            <li>Journalist/Reporter</li>
+                            <li>Lawyer</li>
+                            <li>Librarian</li>
+                            <li>Politician</li>
+                            <li>Public Administrator</li>
+                            <li>Public Relations Specialist</li>
+                            <li>Psychologist</li>
+                            <li>Researcher</li>
+                            <li>Social Worker</li>
+                            <li>Sociologist</li>
+                            <li>Speech Pathologist</li>
+                            <li>Teacher (English, Social Studies, etc.)</li>
+                            <li>Translator/Interpreter</li>
+                            <li>TV/Radio Host</li>
+                            <li>Writer/Author</li>
+                            <li>Community Development Officer</li>
+                            <li>Paralegal</li>
+                            <li>Event Organizer</li>
+                            <li>Political Analyst</li>
+                            <li>Humanitarian Aid Worker</li>
+                            <li>Crisis Counselor</li>
+                            <li>Archivist</li>
+                        </ul>
+                    </li>
+                </ul>   
+
+                <ul>
+                    <li>Science, Technology, Engineering, and Mathematics (STEM)
+                        <ul>
+                            <li>Agricultural Engineer</li>
+                            <li>Aircraft Mechanic</li>
+                            <li>Air Traffic Controller</li>
+                            <li>Architect</li>
+                            <li>Astronomer</li>
+                            <li>Biologist</li>
+                            <li>Biomedical Engineer</li>
+                            <li>Chemical Engineer</li>
+                            <li>Chemist</li>
+                            <li>Civil Engineer</li>
+                            <li>Computer Scientist</li>
+                            <li>Data Scientist</li>
+                            <li>Doctor (various specializations)</li>
+                            <li>Electrical Engineer</li>
+                            <li>Environmental Scientist</li>
+                            <li>Engineer (Mechanical, Civil, etc.)</li>
+                            <li>Geologist</li>
+                            <li>Marine Biologist</li>
+                            <li>Mathematician</li>
+                            <li>Mechanical Engineer</li>
+                            <li>Meteorologist</li>
+                            <li>Nurse</li>
+                            <li>Nutritionist</li>
+                            <li>Pharmacist</li>
+                            <li>Physical Therapist</li>
+                            <li>Physician</li>
+                            <li>Pilot</li>
+                            <li>Physicist</li>
+                            <li>Statistician</li>
+                            <li>Surgeon</li>
+                            <li>Veterinarian</li>
+                            <li>Zoologist</li>
+                            <li>Dentist</li>
+                            <li>Software Developer</li>
+                            <li>IT Consultant</li>
+                            <li>Medical Technologist</li>
+                            <li>Ecologist</li>
+                            <li>Forensic Scientist</li>
+                            <li>Geneticist</li>
+                            <li>Oceanographer</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>General Academic Strand (GAS)
+                        <ul>
+                            <li>Customer Service Representative</li>
+                            <li>Entrepreneur</li>
+                            <li>Flight Attendant</li>
+                            <li>Human Resources Officer</li>
+                            <li>Marketing Specialist</li>
+                            <li>Office Administrator</li>
+                            <li>Project Manager</li>
+                            <li>Public Relations Officer</li>
+                            <li>Real Estate Agent</li>
+                            <li>Sales Representative</li>
+                            <li>Teacher</li>
+                            <li>Tour Guide</li>
+                            <li>Tourism Officer</li>
+                            <li>Hotel Manager</li>
+                            <li>Events Coordinator</li>
+                            <li>Writer/Editor</li>
+                            <li>Public Administrator</li>
+                            <li>Financial Advisor</li>
+                            <li>Business Consultant</li>
+                            <li>Retail Manager</li>
+                            <li>Bank Teller</li>
+                            <li>Government Employee</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h2>Science, Technology, Engineering, and Mathematics (STEM)</h2>
+                <ul>
+                    <li>Skills - Problem-solving, critical thinking, research, analytical, math proficiency, technological literacy.</li>
+                    <li>Certifications - Basic AutoCAD, programming (e.g., Python, Java), laboratory safety certifications.</li>
+                    <li>Talents - Curiosity for science, mathematical reasoning, innovation </li>
+                    <li>Experiences - Science fairs, math competitions, robotics workshops, laboratory experiments, internships in STEM-related fields. </li>
+                    <li>
+                        <ul>
+                             <li>Target Skills:</li>
+                                 <ul>
+                                     <li>Analytical Thinking</li>
+                                     <li>Problem-Solving</li>
+                                     <li>Research Skills</li>
+                                     <li>Mathematical Proficiency</li>
+                                     <li>Technological Literacy</li>
+                                 </ul>
+                             <li>How to Improve:</li>
+                                 <ul>
+                                    <li>Join math/science clubs, robotics competitions, or hackathons.</li>
+                                    <li>Practice solving complex problems through puzzles, coding, or logic-based games.</li>
+                                    <li>Engage in real-world research or science projects (e.g., investigatory projects).</li>
+                                    <li>Use online platforms like Khan Academy or Coursera for advanced math/science tutorials.</li>
+                                    <li>Gain hands-on experience with laboratory equipment and programming languages.</li>
+                                 </ul>
+                        </ul>
+                     </li>
+                </ul>
+
+                <h2>Humanities and Social Sciences (HUMSS)</h2>
+                <ul>
+                    <li>Skills - Communication, critical thinking, empathy, creativity, writing, public speaking.</li>
+                    <li>Certifications - Basic journalism, debate training, or writing workshops. Degree holder in your related career.</li>
+                    <li>Talents - Persuasive communication, storytelling, empathy.</li>
+                    <li>Experiences - Debate tournaments, creative writing, community service, journalism projects.</li>
+                    <li>
+                        <ul>
+                             <li>Target Skills:</li>
+                                 <ul>
+                                     <li>Communication Skills (verbal and written)</li>
+                                     <li>Critical Thinking</li>
+                                     <li>Empathy and Understanding of Human Behavior</li>
+                                     <li>Creativity</li>
+                                     <li>Public Speaking</li>
+                                 
+                                 </ul>
+                             <li>How to Improve:</li>
+                                 <ul>
+                                    <li>Join debates, write essays, or create blogs.</li>
+                                    <li>Analyze news articles, literature, or films for deeper insights.</li>
+                                    <li>Participate in community service or volunteer programs to develop empathy.</li>
+                                    <li>Attend workshops on creative writing, storytelling, or acting.</li>
+                                    <li>Practice public speaking through Toastmasters or local speech clubs.</li>
+                                 </ul>
+                        </ul>
+                     </li>
+                </ul>
+
+                    
+                <h2>Accountancy, Business, and Management (ABM)</h2>
+                <ul>
+                    <li>Skills - Financial literacy, leadership, decision-making, marketing, analytical skills.</li>
+                    <li>Certifications - Basic bookkeeping, entrepreneurship training, Microsoft Excel certifications.</li>
+                    <li>Talents - Leadership, strategic thinking, numerical skills.</li>
+                    <li>Experiences - Business simulations, entrepreneurship programs, market analysis projects.</li>
+                    <li>
+                        <ul>
+                             <li>Target Skills:</li>
+                                 <ul>
+                                     <li>Financial Literacy</li>
+                                     <li>Leadership and Management</li>
+                                     <li>Decision-Making</li>
+                                     <li>Marketing Strategies</li>
+                                     <li>Analytical Thinking</li>
+                                 </ul>
+                             <li>How to Improve:</li>
+                                 <ul>
+                                    <li>Play business simulation games or apps (e.g., SimCity, Business Tycoon).</li>
+                                    <li>Take courses in accounting, marketing, or leadership.</li>
+                                    <li>Organize small projects or businesses to practice leadership and financial skills.</li>
+                                    <li>Join student councils or entrepreneurship events</li>
+                                    <li>Practice using productivity tools like Excel or Google Sheets.</li>
+                                 </ul>
+                        </ul>
+                     </li>
+                </ul>
+
+                <h2>General Academic Strand (GAS)</h2>
+                <ul>
+                    <li>Skills - Adaptability, communication, decision-making, teamwork.</li>
+                    <li>Certifications - Computer literacy training, basic certifications related to other strands.</li>
+                    <li>Talents - Versatility, curiosity, diverse skillsets.</li>
+                    <li>Experiences - Exposure to various fields through general electives, project-based learning.</li>
+                    <li>
+                        <ul>
+                             <li>Target Skills:</li>
+                                 <ul>
+                                     <li>Adaptability</li>
+                                     <li>Problem-Solving</li>
+                                     <li>Communication</li>
+                                     <li>Teamwork</li>
+                                     <li>Decision-Making</li>
+                                    
+                                 </ul>
+                             <li>How to Improve:</li>
+                                 <ul>
+                                    <li>Participate in diverse extracurricular activities to explore various interests.</li>
+                                    <li>Take internships or volunteer in different industries.</li>
+                                    <li>Develop problem-solving skills through games, challenges, or academic competitions.</li>
+                                    <li>Work on group projects to build teamwork and adaptability.</li>
+                                 </ul>
+                        </ul>
+                     </li>
+                </ul>
+                
+
+
+            {% elif detected_track == "ARTS AND DESIGN TRACK" %}
+
+            <b>Arts and Design Track</b>
+            <ul>
+                <li>Music Careers</li>
+                <li>Dance Careers</li>
+                <li>Theater Careers</li>
+                <li>Literary Arts Careers</li>
+                <li>Interior Design and Architecture</li>
+                <li>Art Director</li>
+                <li>Painter</li>
+                <li>Sculptor</li>
+                <li>Illustrator</li>
+                <li>Mural Artist</li>
+                <li>Cartoonist</li>
+                <li>Portrait Artist</li>
+                <li>Sketch Artist</li>
+                <li>Concept Artist</li>
+            </ul>
+
+            <ul>
+                <li>Skills - Adaptability, communication, decision-making, teamwork.</li>
+                    <ul>
+                        <li>Drawing, painting, and sculpting, which are essential for visual arts careers.</li>
+                        <li>Performing artists need strong stage presence, acting techniques, or vocal training, while dancers must excel in choreography and movement coordination.</li>
+                        <li>Writers should develop storytelling, poetry, or screenwriting abilities, alongside strong editing and proofreading skills for literary arts roles</li>
+                        <li>Time management, collaboration, and communication skills are equally important to manage creative projects and work in teams.</li>
+                    </ul>
+                <li>Certifications</li>
+                    <ul>
+                        <li>Certifications like TESDA’s National Certificate (NC) II in Animation, Visual Graphic Design, or Photography validate technical skills and enhance employability.</li>
+                        <li>Attending workshops or earning short-course certificates in creative writing, filmmaking, or music composition adds specialized knowledge to one’s skill set.</li>
+                        <li>Higher education degrees, such as a Bachelor of Fine Arts (BFA) or Bachelor of Performing Arts, provide advanced training and credibility in the field.</li>
+                    </ul>
+
+                <li>Talents - Versatility, curiosity, diverse skillsets.</li>
+                    <ul>
+                        <li>Creativity and originality are the core talents of any artist, allowing them to craft unique and impactful works of art.</li>
+                        <li>A strong artistic vision and the ability to adapt to various styles or mediums are key for thriving in diverse creative industries.</li>
+                        <li>Passion for storytelling and self-expression drives writers, performers, and visual artists to excel in their chosen crafts.</li>
+                    </ul>
+                <li>Experiences - Exposure to various fields through general electives, project-based learning.</li>
+                    <ul>
+                        <li>Participating in school plays, concerts, or art exhibits provides hands-on experience and exposure to the creative process.</li>
+                        <li>Internships in art galleries, design studios, or film production houses allow students to apply their skills in real-world settings and build industry connections.</li>
+                        <li>Competitions and showcases, such as art contests or music and dance performances, are excellent opportunities to gain recognition and refine skills.</li>
+                    </ul>
+            </ul>
+
+
+            <ul>
+                    <li>Target Skills:</li>
+                        <ul>
+                            <li>Creativity is essential for developing unique and original artworks and designs.</li>
+                            <li>Technical drawing skills are crucial for translating ideas into precise visual representations.</li>
+                            <li>Visual communication helps convey messages clearly through design elements like color, shape, and typography.</li>
+                            <li>Problem-solving is needed to address design challenges and create effective solutions.</li>
+                            <li>Attention to detail ensures the quality and polish of the final design or artwork.</li>
+
+                        </ul>
+                    <li>How to Improve:</li>
+                        <ul>
+                            <li>To enhance creativity, regularly experiment with different mediums and seek inspiration from diverse sources.</li>
+                            <li>Improving technical drawing requires consistent practice, studying anatomy, and learning digital tools for precision.</li>
+                            <li>To strengthen visual communication, study design principles and practice creating clear, effective designs with feedback.</li>
+                            <li>Sharpen problem-solving abilities by engaging in design challenges, collaborating with others, and seeking constructive critiques.</li>
+                            <li>Develop attention to detail by refining work through repeated review, comparison with professional designs, and focusing on the finer aspects of the piece.</li>
+                        </ul>
+            </ul>
+
+            {% elif detected_track == "SPORTS TRACK" %}
+            <b>Sports Track</b>
+            <ul>
+                <li>Fitness Trainer</li>
+                <li>Coach/Trainer</li>
+                <li>Sports Official (Referee, Umpire)</li>
+                <li>Athlete</li>
+                <li>Physical Education Instructor</li>
+                <li>Recreation Leader</li>
+                <li>Lifeguard</li>
+                <li>Sports Analyst</li>
+                <li>Event Organizer (Sports)</li>
+                <li>Sports Marketing Associate</li>
+            </ul>
+
+            <ul>
+                <li>Skills -  Teamwork, physical fitness, leadership, strategic thinking</li>
+                <li>Certifications - First aid, coaching seminars, sports officiating.</li>
+                <li>Talents -  Athletic ability, determination, discipline.</li>
+                <li>Experiences -  Sports competitions, coaching training, team-building activities.</li>
+            </ul>
+
+            <ul>
+                <li>Target Skills:</li>
+                    <ul>
+                        <li>Physical Fitness</li>
+                        <li>Teamwork and Leadership</li>
+                        <li>Strategy Development</li>
+                        <li>Discipline and Time Management</li>
+                        <li>Coaching</li>
+                    </ul>
+                <li>How to Improve:</li>
+                    <ul>
+                        <li>Join sports teams or leagues to enhance athletic skills.</li>
+                        <li>Watch and analyze sports games for strategy.</li>
+                        <li>Attend fitness or coaching seminars.</li>
+                        <li>Practice consistent exercise and time management.</li>
+
+                    </ul>
+            </ul>
+
+
+    {% else%}
+        <p>Error: Track not found or no valid track detected.</p>
+    {% endif %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

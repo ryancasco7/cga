@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Career Detection System</h2>
+<form method="POST" action="/result">
+    <!-- Personal Information -->
+    <h4>Personal Information</h4>
+    <div class="mb-3">
+        <label>Name:</label>
+        <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Age:</label>
+        <input type="number" name="age" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Gender:</label>
+        <select name="gender" class="form-control">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Grade:</label>
+        <input type="text" name="grade" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Current School:</label>
+        <input type="text" name="school" class="form-control">
+    </div>
+
+    <!-- Settings -->
+    <h4>Settings</h4>
+    <div class="mb-3">
+        <label>Where do you like to live?</label>
+        <select name="setting1" class="form-control">
+            <option>City</option>
+            <option>Suburban Area</option>
+            <option>Rural Area</option>
+            <option>Flexible</option>
+            <option>Abroad</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Do you prefer to stay in one place or move?</label>
+        <select name="setting2" class="form-control">
+            <option>Stay in one place</option>
+            <option>Move sometimes</option>
+            <option>Move often</option>
+            <option>Work from anywhere</option>
+        </select>
+    </div>
+
+    <!-- Work Preferences -->
+    <h4>Work Preferences</h4>
+    <div class="mb-3">
+        <label>What type of work would you like to do?</label>
+        <select name="work_type" class="form-control">
+            <option>Helping people - (teaching, healthcare, or social work)</option>
+            <option>Working with technology - (computers, IT, or engineering)</option>
+            <option>Creative work - (writing, design, or photography)</option>
+            <option>Hands-on work - (construction, cooking, or crafting)</option>
+            <option>Organizing and managing - (project management or planning)</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label> What is your ideal work environment?</label>
+        <select name="work_env" class="form-control">
+            <option>Office setting</option>
+            <option>Location Independent Work</option>
+            <option>Outdoors </option>
+            <option>Collaborative </option>
+            <option>Independent </option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>What kind of business do you want to start?</label>
+        <select name="business_type" class="form-control">
+            <option>Online business</option>
+            <option>Physical store</option>
+            <option>Service-based</option>
+            <option>Creative business</option>
+            <option>Franchise</option>
+        </select>
+    </div>
+
+    <!-- Goals -->
+    <h4>Goals</h4>
+    <div class="mb-3">
+        <label>What do you want to do within the next one to three years?</label>
+        <div>
+            <input type="checkbox" name="immediate_goals" value="Finish schooling"> Finish schooling<br>
+            <input type="checkbox" name="immediate_goals" value="Explore different careers"> Explore different careers<br>
+            <input type="checkbox" name="immediate_goals" value="Join clubs or activities"> Join clubs or activities<br>
+            <input type="checkbox" name="immediate_goals" value="Improve my grades"> Improve my grades<br>
+            <input type="checkbox" name="immediate_goals" value="Take extra classes"> Take extra classes<br>
+            <input type="checkbox" name="immediate_goals" value="Learn a new skill"> Learn a new skill<br>
+            <input type="checkbox" name="immediate_goals" value="Save money"> Save money<br>
+            <input type="checkbox" name="immediate_goals" value="Volunteer"> Volunteer<br>
+
+        </div>
+    </div>
+    <div class="mb-3">
+        <label>What is your long-term career goal?</label>
+        <select name="long_term_goal" class="form-control">
+            <option value="Go to college">Go to college</option>
+            <option value="Take a vocational course">Take a vocational course</option>
+            <option value="Start working">Start working</option>
+            <option value="Take a gap year">Take a gap year</option>
+            <option value="Join the military">Join the military</option>
+        </select>
+    </div>
+
+    <!-- Skills -->
+    <h4>Skill Ratings</h4>
+    <div class="mb-3">
+        <label>Rate the following skills from 1 (Poor) to 5 (Excellent):</label>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Written Communication:</label>
+                <input type="number" name="written_comm" class="form-control" min="1" max="5">
+            </div>
+            <div class="col-md-6">
+                <label>Verbal Communication:</label>
+                <input type="number" name="verbal_comm" class="form-control" min="1" max="5">
+            </div>
+            <div class="col-md-6">
+                <label>Problem Solving:</label>
+                <input type="number" name="problem_solving" class="form-control" min="1" max="5">
+            </div>
+            <div class="col-md-6">
+                <label>Teamwork:</label>
+                <input type="number" name="teamwork" class="form-control" min="1" max="5">
+            </div>
+            <div class="col-md-6">
+                <label>Analytical Ability:</label>
+                <input type="number" name="analytical" class="form-control" min="1" max="5">
+            </div>
+            <div class="col-md-6">
+                <label>Reactive Ability:</label>
+                <input type="number" name="reactive" class="form-control" min="1" max="5">
+            </div>
+            <div class="col-md-6">
+                <label>Creative Thinking:</label>
+                <input type="number" name="creative" class="form-control" min="1" max="5">
+            </div>
+            <div class="col-md-6">
+                <label>Numeracy:</label>
+                <input type="number" name="numeracy" class="form-control" min="1" max="5">
+            </div>
+            <div class="col-md-6">
+                <label>Leadership:</label>
+                <input type="number" name="leadership" class="form-control" min="1" max="5">
+            </div>
+            <div class="col-md-6">
+                <label>Commercial Awareness:</label>
+                <input type="number" name="commercial" class="form-control" min="1" max="5">
+            </div>
+            <div class="col-md-6">
+                <label>Decision Making:</label>
+                <input type="number" name="decision" class="form-control" min="1" max="5">
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

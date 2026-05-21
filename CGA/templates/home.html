@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container shadow-lg p-4 rounded-lg">
+    <img src="{{ url_for('static', filename='images/bg.png') }}" alt="My Image" style="max-width: 100%; height: auto; margin: 5px;">
+    <p><strong>Welcome to the Career Detection System</strong></p>
+    <p>Are you uncertain about your career path? The <strong>Career Detection System</strong> is designed to assist you in navigating your future. This advanced platform provides personalized career recommendations tailored to your unique skills, interests, and chosen track. Whether you are exploring opportunities in the academic, technical-vocational, arts, or sports sectors, our system empowers you to discover relevant career opportunities and provides insightful guidance to help you excel in your chosen field. Begin your journey towards a successful and fulfilling career with us today.</p>
+
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <img src="{{ url_for('static', filename='images/image_person_girl_thinking_1.png') }}" alt="Career Path" style="width: 150px; height: auto;">
+        <div>
+            <p><strong>Why is Knowing Your Career Important?</strong></p>
+            <p>Understanding your career path is crucial for both personal and professional growth. It allows you to make informed decisions, set clear goals, and take purposeful actions toward achieving success. By identifying your strengths, interests, and aspirations, you can align your education and skill development to better prepare for the future. Knowing your career direction not only boosts motivation and confidence but also enables you to navigate opportunities and challenges with a clear vision. A well-defined career path is the key to long-term satisfaction and success in your chosen field.</p>
+        </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <div>
+            <p><strong>What Track Suits You?</strong></p>
+            <p>Choosing the right career track is essential to align your interests, skills, and aspirations with your future goals. Whether you are inclined toward academic excellence, technical skills, creativity, or sports, the right track will guide you in the right direction.</p>
+            <p>Explore the different tracks available, and let the <strong>Career Detection System</strong> help you make an informed decision that sets you on the path to success.</p>
+        </div>
+        <img src="{{ url_for('static', filename='images/girl_pointing.png') }}" alt="Career Path" style="width: 150px; height: auto;">
+    </div>
+    
+    <div class="container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+        <a class="btn btn-primary btn-lg" href="#" role="button">KNOW YOUR CAREER NOW</a>
+    </div>
+    
+    
+</div>
+
+
+{% endblock %}
